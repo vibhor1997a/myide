@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>My IDE</title>
-<script src="javascripts/libs/jquery-3.2.1.min.js"></script>
-<script src="javascripts/abc.js"></script>
-</head>
+    <link rel="stylesheet" href="stylesheets/editor.css"> </head>
+
 <body>
-    <textarea id="code" cols="100" rows="100">
-        
-    </textarea><br>
-    <textarea id="stdin" cols="40" rows="10"></textarea><br>
-<input type="submit" id="run" value="Run">    
-</body>
+    <div id="toggle-theme-container"><input type="checkbox" id="toggle-theme">Dark</div>
+    <div id="editor"> //Write your code here </div>
+    <br>
+    <select id="lang-selector">
+        <option value="C">C</option>
+        <option value="C++">C++</option>
+        <option value="Java">Java</option>
+        <option value="Python">Python</option>
+        <option value="Node.js">Node.js</option>
+    </select>
+    <textarea id="stdin" cols="40" rows="10"></textarea>
+    <textarea id="stdout" cols="40" rows="10" hidden="true"></textarea>
+    <textarea id="stderr" cols="40" rows="10" hidden="true"></textarea>
+    <br>
+    <input type="submit" id="run" value="Run"> </body>
+<script src="javascripts/libs/jquery-3.2.1.min.js"></script>
+<script src="javascripts/libs/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="javascripts/libs/ace-builds/src-noconflict/ext-language_tools.js"></script>
+<script>
+    ace.require("ace/ext/language_tools");
+    var editor = ace.edit("editor");
+    //    editor.setTheme("ace/theme/twilight");
+    editor.setOptions({
+        enableBasicAutocompletion: true
+        , enableSnippets: true
+        , enableLiveAutocompletion: true
+    });
+    editor.getSession().setMode("ace/mode/c_cpp");
+</script>
+<script src="javascripts/abc.js"></script>
+
 </html>

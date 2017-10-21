@@ -1,0 +1,45 @@
+#editor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 573px;
+    height: 348px
+}
+
+#stdin {
+    position: absolute;
+    top: 400px;
+    left: 20px;
+}
+
+#lang-selector {
+    position: absolute;
+    top: 430px;
+    left: 400px;
+}
+
+#run {
+    position: absolute;
+    top: 580px;
+    left: 30px;
+}
+
+#stdout {
+    position: absolute;
+    top: 630px;
+    left: 20px;
+}
+
+#stderr {
+    position: absolute;
+    top: 630px;
+    left: 450px;
+}
+
+#toggle-theme-container {
+    position: absolute;
+    top: 0px;
+    left: 670px;
+}
