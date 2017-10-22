@@ -10,7 +10,7 @@ function run(lang, code, input, callback) {
             callback(stdout, stderr, err);
         });
     }
-    else if (lang == 'C++') {
+    else if (lang == 'Cpp') {
         compile_run.runCpp(code, input, function (stdout, stderr, err) {
             callback(stdout, stderr, err);
         });
