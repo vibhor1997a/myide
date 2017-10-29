@@ -4,13 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var app = express();
+app.use(session({ secret: 'ajhshYuwJKSasasAA' }));
 
 var index = require('./routes/index');
-var users = require('./routes/users');
-var run=require('./routes/run');
-var templates=require('./routes/templates');
-
-var app = express();
+var run = require('./routes/run');
+var templates = require('./routes/templates');
+var login = require('./routes/login');
+var signup = require('./routes/signup');
+var logout = require('./routes/logout');
+var mycode =require('./routes/mycode');
+var account=require('./routes/account');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,21 +28,25 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/templates',templates);
+
+app.use('/templates', templates);
 
 app.use('/', index);
-app.use('/users', users);
-app.use('/run',run);
+app.use('/run', run);
+app.use('/login', login);
+app.use('/logout', logout);
+app.use('/signup', signup);
+app.use('/mycode',mycode);
+app.use('/account',account);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
-
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

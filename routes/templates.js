@@ -7,5 +7,5 @@ router.use('/Cpp'||'/cpp',express.static(path.join(__dirname,'../templates/templ
 router.use('/java'||'/Java',express.static(path.join(__dirname,'../templates/template.java')));
 router.use('/Python'||'/python',express.static(path.join(__dirname,'../templates/template.py')));
 router.use('/Node'||'/node',express.static(path.join(__dirname,'../templates/template.js')));
-// router.use('/c++'||'/C++',express.static(path.join(__dirname,'../templates/template.cpp')));
+
 module.exports=router;
